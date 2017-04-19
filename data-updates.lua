@@ -1,0 +1,3 @@
+-- Replace coal with carbon if bobs/angels is on
+-- Prioritize angels's version
+-- Rework technology to have a dependency on it
