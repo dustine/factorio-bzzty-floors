@@ -40,4 +40,5 @@ luac.out
 *.hex
 
 # Project
-*.pnd
+graphics/**/*.pdn
+graphics/**/*.svg

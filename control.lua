@@ -6,14 +6,14 @@ require 'stdlib/event/event'
 -- local table_filter = table.filter
 
 local function placeComponents(surface, position, force)
-  local wire = surface.create_entity{
-    name = "bzzty-floor-floor-wire",
+  local pole = surface.create_entity{
+    name = "bzzty-floors-exposed-pole",
     position = position,
     force = force
   }
-  if wire then wire.destructible = false end
+  if pole then pole.destructible = false end
   surface.create_entity{
-    name = "bzzty-floor-floor-bolt",
+    name = "bzzty-floors-exposed-turret",
     position = position,
     force = force
   }
@@ -24,7 +24,7 @@ local function finishBuildingTiles(entity, positions)
     local tile = entity.surface.get_tile(position.x, position.y)
     if tile then
       -- short-circuit the event if we're not even dealing with our tile
-      if not(tile.name:find("bzzty%-floor%-floor")) then return end
+      if not(tile.name:find("bzzty%-floors%-exposed")) then return end
       if tile.valid then placeComponents(entity.surface, position, entity.force) end
     end
   end
@@ -32,10 +32,10 @@ end
 
 local function removeComponents(surface, position)
   if not(surface) then return end
-  local wire = surface.find_entity("bzzty-floor-floor-wire", position)
-  if wire and wire.valid then wire.destroy() end
-  local bolt = surface.find_entity("bzzty-floor-floor-bolt", position)
-  if bolt and bolt.valid then bolt.destroy() end
+  local pole = surface.find_entity("bzzty-floors-exposed-pole", position)
+  if pole and pole.valid then pole.destroy() end
+  local turret = surface.find_entity("bzzty-floors-exposed-turret", position)
+  if turret and turret.valid then turret.destroy() end
 end
 
 local function finishRemovingTiles(entity, positions)
@@ -62,7 +62,7 @@ end)
 
 Event.register(defines.events.on_entity_died, function(event)
   local entity = event.entity
-  if entity.name:find("bzzty%-floor%-floor") then
+  if entity.name:find("bzzty%-floors%-exposed") then
     local surface = entity.surface
     local position = entity.position
     -- place ghost if required
@@ -72,7 +72,7 @@ Event.register(defines.events.on_entity_died, function(event)
         name="tile-ghost",
         position=position,
         force=entity.force,
-        inner_name="bzzty-floor-floor"
+        inner_name="bzzty-floors-exposed"
       }
     end
     -- remove tile + components

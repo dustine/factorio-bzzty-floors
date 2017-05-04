@@ -1,1 +1,1 @@
-require "prototypes.entities.floor"
+require "prototypes.entities.exposed"

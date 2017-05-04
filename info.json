@@ -1,11 +1,11 @@
 {
-    "name": "BzztyFloor",
-    "version": "0.0.0",
-    "title": "Bzzty Floor",
+    "name": "BzztyFloors",
+    "version": "0.1.0",
+    "title": "Bzzty Floors",
     "author": "Dustine",
     "dependencies": ["base >= 0.15.0"],
-    "description": "Adds electric floors that connect to each other and feed power to machines above them. Oh, and they pack an electrical punch to them, so they work pretty well for base defense. Make sure you have Power Armor before stepping on it...",
+    "description": "Adds electric floors that connect to each other and feed power to machines above them, with a few extra bell and whistles. Like helping with base defense or soaking up polution!",
     "factorio_version": "0.15",
-    "homepage": "https://github.com/dustine/BzztyFloor",
-    "repository": "https://github.com/dustine/BzztyFloor"
+    "homepage": "https://github.com/dustine/BzztyFloors",
+    "repository": "https://github.com/dustine/BzztyFloors"
 }
