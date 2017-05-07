@@ -13,7 +13,6 @@ local function laser_turret_extension(inputs)
   }
 end
 
--- TODO: Make this a deepcopy from electric-beam
 local beam = table.deepcopy(data.raw.beam["electric-beam"])
 beam.name = "bzzty-floors-exposed-turret-beam"
 beam.damage_interval = 20
@@ -41,9 +40,9 @@ local turret = {
   flags = {"player-creation", "not-on-map"},
   minable = { mining_time = 10, result = "bzzty-floors-exposed" },
   max_health = 1000,
-  corpse = "medium-remnants",
-  dying_explosion = "medium-explosion",
-  collision_box = {{-0.5, -0.5}, {0.5, 0.5}},
+  corpse = "small-remnants",
+  dying_explosion = "explosion",
+  collision_box = {{-0.4, -0.4}, {0.4, 0.4}},
   selection_box = {{-0.25, -0.25}, {0.25, 0.25}},
   collision_mask = {},
   rotation_speed = 1,
@@ -91,7 +90,7 @@ local turret = {
       height = 32,
       frame_count = 1,
       axially_symmetrical = false,
-      direction_count = 1,
+      direction_count = 64,
     }}
   },
   folding_animation = {
@@ -158,7 +157,7 @@ local pole = {
     icon = "__BzztyFloors__/graphics/entities/exposed-pole-icon.png"
   }},
   flags = {"player-creation", "not-on-map"},
-  collision_box = {{-0.5, -0.5}, {0.5, 0.5}},
+  collision_box = {{-0.4, -0.4}, {0.4, 0.4}},
   selection_box = {{-0.5, -0.5}, {0.5, 0.5}},
   collision_mask = {},
   maximum_wire_distance = 1.5,
